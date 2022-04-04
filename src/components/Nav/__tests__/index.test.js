@@ -8,6 +8,8 @@ const categories = [
 ];
 const mockCurrentCategory = jest.fn();
 const mockSetCurrentCategory = jest.fn();
+const mockContactSelected = jest.fn();
+const mockSeContactSelected = jest.fn();
 
 afterEach(cleanup);
 
@@ -19,6 +21,8 @@ describe('Nav component', () => {
         categories={categories}
         setCurrentCategory={mockSetCurrentCategory}
         currentCategory={mockCurrentCategory}
+        contactSelected={mockContactSelected}
+        setContactSelected={mockSeContactSelected}
       ></Nav>
     );
   });
@@ -30,6 +34,8 @@ describe('Nav component', () => {
         categories={categories}
         setCurrentCategory={mockSetCurrentCategory}
         currentCategory={mockCurrentCategory}
+        contactSelected={mockContactSelected}
+        setContactSelected={mockSeContactSelected}
       ></Nav>
     );
 
@@ -44,6 +50,8 @@ describe('emoji is visible', () => {
         categories={categories}
         setCurrentCategory={mockSetCurrentCategory}
         currentCategory={mockCurrentCategory}
+        contactSelected={mockContactSelected}
+        setContactSelected={mockSeContactSelected}
       ></Nav>
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries
