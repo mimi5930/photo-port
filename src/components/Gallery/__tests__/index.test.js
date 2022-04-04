@@ -1,0 +1,32 @@
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Gallery from '..';
+
+const portrait = {
+  name: 'portraits',
+  description: 'Portraits of people in my life'
+};
+
+afterEach(cleanup);
+
+describe('Gallery is rendering', () => {
+  it('renders', () => {
+    render(<Gallery currentCategory={portrait}></Gallery>);
+  });
+
+  it('matches snapshot', () => {
+    const { asFragment } = render(
+      <Gallery currentCategory={portrait}></Gallery>
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('renders title', () => {
+    const { getByTestId } = render(
+      <Gallery currentCategory={portrait}></Gallery>
+    );
+    // eslint-disable-next-line testing-library/prefer-screen-queries
+    expect(getByTestId('h1tag')).toHaveTextContent('Portraits');
+  });
+});
